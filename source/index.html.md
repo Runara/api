@@ -3,10 +3,9 @@ title: Runara API Reference
 
 language_tabs:
   - shell
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://app.runara.com/developer'>Sign Up for a Developer Key</a>
 
 includes:
   - errors
@@ -59,7 +58,7 @@ Kittn uses API keys to allow access to the API. You can register a new Kittn API
 
 Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: you.jwt.token`
+`Authorization: Bearer your.jwt.token`
 
 <aside class="notice">
 You must replace <code>you.jwt.token</code> with your personal API key.
@@ -71,7 +70,7 @@ You must replace <code>you.jwt.token</code> with your personal API key.
 
 ```shell
 curl "https://api.runara.com/kittens"
-  -H "Authorization: Bearer:your.jwt.token"
+  -H "Authorization: Bearer your.jwt.token"
 ```
 
 ```javascript
