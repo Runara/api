@@ -331,19 +331,19 @@
             <a href="#checkout" class="toc-h1 toc-link" data-title="Checkout">Checkout</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#create-checkout-cart-item-s" class="toc-h2 toc-link" data-title="Create Checkout (Cart) Item(s)">Create Checkout (Cart) Item(s)</a>
+                    <a href="#create-an-empty-cart" class="toc-h2 toc-link" data-title="Create an Empty Cart">Create an Empty Cart</a>
                   </li>
                   <li>
-                    <a href="#update-checkout-cart" class="toc-h2 toc-link" data-title="Update Checkout Cart">Update Checkout Cart</a>
+                    <a href="#create-a-cart-with-items-added" class="toc-h2 toc-link" data-title="Create a Cart with Items Added">Create a Cart with Items Added</a>
                   </li>
                   <li>
-                    <a href="#update-profile-photo" class="toc-h2 toc-link" data-title="Update Profile Photo">Update Profile Photo</a>
+                    <a href="#add-an-item" class="toc-h2 toc-link" data-title="Add an Item">Add an Item</a>
                   </li>
                   <li>
-                    <a href="#remove-profile-photo" class="toc-h2 toc-link" data-title="Remove Profile Photo">Remove Profile Photo</a>
+                    <a href="#remove-an-item" class="toc-h2 toc-link" data-title="Remove an Item">Remove an Item</a>
                   </li>
                   <li>
-                    <a href="#add-a-gratuity" class="toc-h2 toc-link" data-title="Add a Gratuity">Add a Gratuity</a>
+                    <a href="#update-item-quantity" class="toc-h2 toc-link" data-title="Update Item Quantity">Update Item Quantity</a>
                   </li>
               </ul>
           </li>
@@ -1880,71 +1880,223 @@ Photo is automatically duplicated and resized twice upon upload.
 <p>Removes a user&#39;s profile photo.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE https://api.runara.com/profile/photo</code></p>
-<h1 id='checkout'>Checkout</h1><h2 id='create-checkout-cart-item-s'>Create Checkout (Cart) Item(s)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.runara.com/profile"</span>
-  -H <span class="s2">"Authorization: Bearer:your.jwt.token"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">runara</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'runara'</span><span class="p">);</span>
+<h1 id='checkout'>Checkout</h1>
+<p>Checkout endpoints create and modify a shopping cart on the Runara platform. All account purchases are managed through the Checkout interface.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">runara</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'you.jwt.token'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
+<aside class="notice">
+All checkout endpoints return the same 204 response and schema unless an error is encountered.
+</aside>
+
+<aside class="notice">
+There is no endpoint or action for cancelling/abandoning a cart. You may re-start a checkout process at any time with the same client without any conflicts with data, provided you submit the updated "cart" ID.
+</aside>
+<h2 id='create-an-empty-cart'>Create an Empty Cart</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Empty Cart Response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sd5763ce9a89201a8f515fa4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user.name@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mike"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photo_1484882588_default.jpg"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photo_1484882588_thumb.jpg"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1939</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payments_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"is_deposit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"limited_to_single"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"needs_secondary_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pay_at_checkout"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_type_defaulted"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ready_to_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"promo_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gratuity_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"payment_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_100526"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa ending in 4242"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card-visa"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card-cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"credit_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100110</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tucker"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tuckerson"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tucker@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photos</span><span class="se">\/</span><span class="s2">photo_1520391437_thumb.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"promos"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gratuity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_option"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"closeout"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sub_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_taxable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$0.00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Creates a new checkout item, ready to have products/payment added.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/profiles</code></p>
-<h2 id='update-checkout-cart'>Update Checkout Cart</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.runara.com/profiles"</span>
-  -H <span class="s2">"Authorization: Bearer:your.jwt.token"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">runara</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'runara'</span><span class="p">);</span>
+<p>Create an empty cart to initialize it if you do not yet know which items the client would like to purchase.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">runara</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'you.jwt.token'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td>true</td>
+<td>User ID of client</td>
+<td><code>11223344</code></td>
+</tr>
+</tbody></table>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.runara.com/cart</code></p>
+<h2 id='create-a-cart-with-items-added'>Create a Cart with Items Added</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Cart response with a Class/Session combo added</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"588676099a892004b8252ada"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1940</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payments_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"is_deposit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"limited_to_single"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"needs_secondary_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pay_at_checkout"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_type_defaulted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ready_to_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"promo_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gratuity_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"payment_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_100526"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa ending in 4242"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card-visa"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card-cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkin"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay at Check-In"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card-cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"credit_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"limited_to_single"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"583e37e09a89202eba73abc2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100110</span><span class="p">,</span><span class="w">
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tucker"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wuori"</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tuckerson"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tucker@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photos</span><span class="se">\/</span><span class="s2">photo_1520391437_thumb.jpg"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57eb32929a892032fe369709"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"package"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Orchid Package"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"qty"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40.00"</span><span class="w">
+        </span><span class="s2">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Advanced Pilates"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Booking"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"class"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100115</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"qty"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$5.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$5.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$5.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"staffed_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100115</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmond Mann"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">randomuser.me</span><span class="se">\/</span><span class="s2">api</span><span class="se">\/</span><span class="s2">portraits</span><span class="se">\/</span><span class="s2">women</span><span class="se">\/</span><span class="s2">0.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100118</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pineville"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"session_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1532706000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"session_date_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Friday, Jul 27th at 11:40am"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Session"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_type_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Session"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Session - $5.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pkg_100121-100115"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Package - 5 Sessions"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Package - 5 Sessions for $50.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5 Sessions"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Expires in 90 days"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pkg_100122-100115"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Package - 10 Sessions"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Package - 10 Sessions for $80.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10 Sessions"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Does not expire."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pkg_100123-100115"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Package - 25 Sessions"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Package - 25 Sessions for $125.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25 Sessions"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Does not expire."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"limited_to_single"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"promos"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gratuity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_option"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"closeout"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sub_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$5.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_taxable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$5.00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Updates a cart&#39;s contents.</p>
+<p>You can also create a cart with items already added.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/cart/:cart_id</code></p>
+<p><code>POST https://api.runara.com/cart</code></p>
 <h3 id='body-parameters'>BODY Parameters</h3>
 <table><thead>
 <tr>
@@ -1955,89 +2107,129 @@ Photo is automatically duplicated and resized twice upon upload.
 </tr>
 </thead><tbody>
 <tr>
-<td>itmes</td>
-<td>false</td>
-<td>Cart Items</td>
-<td>Object</td>
-</tr>
-<tr>
-<td>last_name</td>
+<td>client</td>
 <td>true</td>
-<td>User&#39;s last name.</td>
-<td><code>Vorhees</code></td>
-</tr>
-<tr>
-<td>email</td>
-<td>true</td>
-<td>User&#39;s email address.</td>
-<td><code>user@email.com</code></td>
-</tr>
-<tr>
-<td>street</td>
-<td>false</td>
-<td>User&#39;s street address.</td>
-<td><code>123 Yellow Ln</code></td>
-</tr>
-<tr>
-<td>street_2</td>
-<td>false</td>
-<td>User&#39;s street address extension.</td>
-<td><code>#4567</code></td>
-</tr>
-<tr>
-<td>city</td>
-<td>false</td>
-<td>User&#39;s city.</td>
-<td><code>Hollywood</code></td>
-</tr>
-<tr>
-<td>state</td>
-<td>false</td>
-<td>User&#39;s state.</td>
-<td><code>CA</code></td>
-</tr>
-<tr>
-<td>postal</td>
-<td>false</td>
-<td>User&#39;s postal code.</td>
-<td><code>90210</code></td>
+<td>User ID of client</td>
+<td><code>11223344</code></td>
 </tr>
 </tbody></table>
-<h2 id='update-profile-photo'>Update Profile Photo</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.runara.com/profiles"</span>
-  -H <span class="s2">"Authorization: Bearer:your.jwt.token"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">runara</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'runara'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">runara</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'you.jwt.token'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
+<h3 id='example-add-a-class-session'>Example: Add a class session:</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item</td>
+<td>true</td>
+<td>Item to add to cart.</td>
+<td><code>class-11223344</code></td>
+</tr>
+<tr>
+<td>session</td>
+<td>true</td>
+<td>Session ID to book.</td>
+<td><code>100133-1532706000</code></td>
+</tr>
+</tbody></table>
+<h2 id='add-an-item'>Add an Item</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Cart response with a product added</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sd5763ce9a89201a8f515fa4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user.name@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mike"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photo_1484882588_default.jpg"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photo_1484882588_thumb.jpg"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1941</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payments_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"is_deposit_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"limited_to_single"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"needs_secondary_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pay_at_checkout"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_type_defaulted"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ready_to_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"promo_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gratuity_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"payment_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_100526"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa ending in 4242"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card-visa"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card-cash"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"credit_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100110</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tucker"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tuckerson"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tucker@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photos</span><span class="se">\/</span><span class="s2">photo_1520391437_thumb.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T Shirt - #519608"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100111</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"519608"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"qty"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$25.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$25.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$25.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"staffed_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"session_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"session_date_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wednesday, Dec 31st at 7:00pm"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_type_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"purchase_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"limited_to_single"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"promos"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gratuity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_option"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"closeout"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sub_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$25.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_taxable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$25.00"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Updates or adds a user&#39;s profile photo.</p>
+<p>Adds and item to an existing cart.</p>
 
-<aside class="notice">
-Photo is automatically duplicated and resized twice upon upload.
-</aside>
+<p>You can add an item to a cart provided it meets the following conditions:</p>
+
+<ul>
+<li>Items can not be added to an initial booking of a class or appointment.</li>
+<li>Only one pass or package is allowed for each purchase.</li>
+</ul>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/profile/photo</code></p>
+<p><code>POST https://api.runara.com/cart/items/add</code></p>
 <h3 id='body-parameters-2'>BODY Parameters</h3>
 <table><thead>
 <tr>
@@ -2048,57 +2240,108 @@ Photo is automatically duplicated and resized twice upon upload.
 </tr>
 </thead><tbody>
 <tr>
-<td>image</td>
+<td>client</td>
 <td>true</td>
-<td>Image file</td>
-<td><code>[FILE]</code></td>
+<td>User ID of client</td>
+<td><code>11223344</code></td>
+</tr>
+<tr>
+<td>cart</td>
+<td>true</td>
+<td>ID of cart to add item to</td>
+<td><code>11223344</code></td>
 </tr>
 </tbody></table>
-<h2 id='remove-profile-photo'>Remove Profile Photo</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.runara.com/profiles"</span>
-  -H <span class="s2">"Authorization: Bearer:your.jwt.token"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">runara</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'runara'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">runara</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'you.jwt.token'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sd5763ce9a89201a8f515fa4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user.name@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mike"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Removes a user&#39;s profile photo.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DELETE https://api.runara.com/profile/photo</code></p>
-<h2 id='add-a-gratuity'>Add a Gratuity</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.runara.com/cart/gratuity"</span>
-  -H <span class="s2">"Authorization: Bearer:your.jwt.token"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns the cart JSON response.</p>
-</blockquote>
-
-<p>Adds a gratuity amount to a checkout.</p>
-
+<p><em>The above parameters are required for each of the examples below</em></p>
+<h3 id='example-add-a-product'>Example: Add a product:</h3>
 <aside class="notice">
-To update / remove a gratuity, just pass in a new amount to overwrite the existing amount.
+Products are passed as a combination of product and SKU.
 </aside>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/cart/gratuity</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item</td>
+<td>true</td>
+<td>Item to add to cart.</td>
+<td><code>product-11223344-323423</code></td>
+</tr>
+<tr>
+<td>qty</td>
+<td>false</td>
+<td>Quantity of product/SKU to add. Default: <code>1</code>.</td>
+<td><code>1</code></td>
+</tr>
+</tbody></table>
+<h3 id='example-add-a-booking'>Example: Add a booking:</h3>
+<aside class="notice">
+Bookings are passed as a pair of class/appointment ID and session ID.
+</aside>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item</td>
+<td>true</td>
+<td>Item to add to cart.</td>
+<td><code>class-11223344</code> or <code>appt-11223344</code></td>
+</tr>
+<tr>
+<td>session</td>
+<td>true</td>
+<td>Session ID to book.</td>
+<td><code>100133-1532706000</code></td>
+</tr>
+</tbody></table>
+<h3 id='example-add-a-package'>Example: Add a package:</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item</td>
+<td>true</td>
+<td>Package to add to cart.</td>
+<td><code>package-11223344</code></td>
+</tr>
+</tbody></table>
+<h3 id='example-add-a-pass'>Example: Add a pass:</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item</td>
+<td>true</td>
+<td>Pass to add to cart.</td>
+<td><code>pass-11223344</code></td>
+</tr>
+</tbody></table>
+<h2 id='remove-an-item'>Remove an Item</h2>
+<p>Removes an item from an existing cart.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.runara.com/cart/items/remove</code></p>
 <h3 id='body-parameters-3'>BODY Parameters</h3>
 <table><thead>
 <tr>
@@ -2109,18 +2352,77 @@ To update / remove a gratuity, just pass in a new amount to overwrite the existi
 </tr>
 </thead><tbody>
 <tr>
-<td>cart</td>
+<td>client</td>
 <td>true</td>
-<td>ID of cart</td>
-<td><code>sd5763ce9a89201a8f515fa4</code></td>
+<td>User ID of client</td>
+<td><code>11223344</code></td>
 </tr>
 <tr>
-<td>amount</td>
+<td>cart</td>
 <td>true</td>
-<td>Gratuity amount</td>
-<td><code>5.00</code></td>
+<td>ID of cart to add item to</td>
+<td><code>11223344</code></td>
+</tr>
+<tr>
+<td>item</td>
+<td>true</td>
+<td>ID of item to remove</td>
+<td><code>11223344</code></td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+The "item" parameter is the item id of the cart.items object, not the item itself. ("11223344" vs. "product-112233-334411").
+</aside>
+<h2 id='update-item-quantity'>Update Item Quantity</h2>
+<p>Updates the quantity of a single item added to cart.</p>
+
+<aside class="notice">
+Quantity only applies to products. Other items are single-purchase only.
+</aside>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.runara.com/cart/items/remove</code></p>
+<h3 id='body-parameters-4'>BODY Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td>true</td>
+<td>User ID of client</td>
+<td><code>11223344</code></td>
+</tr>
+<tr>
+<td>cart</td>
+<td>true</td>
+<td>ID of cart to add item to</td>
+<td><code>11223344</code></td>
+</tr>
+<tr>
+<td>item</td>
+<td>true</td>
+<td>ID of item to remove</td>
+<td><code>11223344</code></td>
+</tr>
+<tr>
+<td>qty</td>
+<td>true</td>
+<td>Quantity of item to purchase.</td>
+<td><code>4</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Note:</strong> The following validation occurs when adjusting quantity:</p>
+
+<ul>
+<li>If <code>qty</code> is <code>0</code>, the item will be removed</li>
+<li>If <code>qty</code> is greater than inventory on-hand, a 422 validation error will be returned.</li>
+</ul>
 <h1 id='bookings'>Bookings</h1><h2 id='get-all-bookings'>Get All bookings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.runara.com/kittens"</span>
   -H <span class="s2">"Authorization: Bearer:your.jwt.token"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">runara</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'runara'</span><span class="p">);</span>
