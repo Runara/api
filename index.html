@@ -374,6 +374,9 @@
                   <li>
                     <a href="#re-book-a-session" class="toc-h2 toc-link" data-title="Re-Book a Session">Re-Book a Session</a>
                   </li>
+                  <li>
+                    <a href="#check-in-a-client" class="toc-h2 toc-link" data-title="Check-In a Client">Check-In a Client</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -2831,6 +2834,46 @@ You can pass either a 3-part session identifier or a single-part booking identif
 <td>true</td>
 <td>ID of booking to to re-book</td>
 <td><code>58633ade9a89200fe53be77b</code></td>
+</tr>
+</tbody></table>
+<h2 id='check-in-a-client'>Check-In a Client</h2>
+<blockquote>
+<p>Successful check-in returns an empty 204 response.</p>
+</blockquote>
+
+<p>This endpoint adds a client to the requestor&#39;s current account.</p>
+
+<aside class="notice">
+Check-Ins can be made for any pass-holding client of the requestor's current account. Clients are only allowed one pass per account at any given time.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.runara.com/bookings/checkinpass</code></p>
+<h3 id='body-parameters'>BODY Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td>true if no <code>code</code></td>
+<td>ID of client to check-in.</td>
+<td><code>1233243</code></td>
+</tr>
+<tr>
+<td>code</td>
+<td>true if no <code>client</code></td>
+<td>Badge/Fob code for client.</td>
+<td><code>AA234444</code></td>
+</tr>
+<tr>
+<td>location</td>
+<td>true</td>
+<td>Current location ID where check-in occurs.</td>
+<td><code>2233344</code></td>
 </tr>
 </tbody></table>
 
