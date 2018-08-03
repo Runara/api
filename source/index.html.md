@@ -16,6 +16,7 @@ includes:
   - profiles
   - checkout
   - bookings
+  - checkin
 
 search: true
 ---

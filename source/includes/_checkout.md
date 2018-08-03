@@ -7,7 +7,7 @@ All checkout endpoints return the same 204 response and schema unless an error i
 </aside>
 
 <aside class="notice">
-There is no endpoint or action for cancelling/abandoning a cart. You may re-start a checkout process at any time with the same client without any conflicts with data, provided you submit the updated "cart" ID.
+There is no endpoint or action for cancelling/abandoning a cart. You may re-start a checkout process at any time with the same client without any conflicts with data, provided you submit the updated "cart" ID. 
 </aside>
 
 ## Create an Empty Cart
