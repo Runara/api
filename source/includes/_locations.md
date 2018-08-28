@@ -2,11 +2,7 @@
 
 ## Find Nearby Locations
 
-```shell
-curl "https://api.runara.com/locations/nearby"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-> The above command returns the JSON structure:
+> Example Response:
 
 ```json
 {
@@ -103,11 +99,7 @@ category | string | false | Category to limit results to. | 'Spa'
 
 ## View Location Details
 
-```shell
-curl "https://api.runara.com/locations/{ID}"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-> The above command returns the JSON structure:
+> Example Response:
 
 ```json
 {

@@ -2,19 +2,7 @@
 
 ## Get User Profile
 
-```shell
-curl "https://api.runara.com/profile"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-```javascript
-const runara = require('runara');
-
-let api = runara.authorize('you.jwt.token');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -44,19 +32,7 @@ Returns the profile of the user requesting the endpoint.
 
 ## Update Profile
 
-```shell
-curl "https://api.runara.com/profiles"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-```javascript
-const runara = require('runara');
-
-let api = runara.authorize('you.jwt.token');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -103,19 +79,7 @@ postal | false | User's postal code. | `90210`
 
 ## Update Profile Photo
 
-```shell
-curl "https://api.runara.com/profiles"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-```javascript
-const runara = require('runara');
-
-let api = runara.authorize('you.jwt.token');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -155,19 +119,7 @@ image | true | Image file | `[FILE]`
 
 ## Remove Profile Photo
 
-```shell
-curl "https://api.runara.com/profiles"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-```javascript
-const runara = require('runara');
-
-let api = runara.authorize('you.jwt.token');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {

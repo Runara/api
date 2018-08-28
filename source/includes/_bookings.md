@@ -2,19 +2,7 @@
 
 ## Get All bookings
 
-```shell
-curl "https://api.runara.com/kittens"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-```javascript
-const runara = require('runara');
-
-let api = runara.authorize('you.jwt.token');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 [
@@ -30,19 +18,7 @@ This endpoint retrieves all bookings for the current user.
 
 ## Get a Specific Booking
 
-```shell
-curl "https://api.runara.com/bookings"
-  -H "Authorization: you.jwt.token"
-```
-
-```javascript
-const runara = require('runara');
-
-let api = runara.authorize('you.jwt.token');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -68,19 +44,7 @@ ID | The ID of the booking to retrieve
 
 ## Create a Booking
 
-```shell
-curl "https://api.runara.com/bookings"
-  -H "Authorization: you.jwt.token"
-```
-
-```javascript
-const runara = require('runara');
-
-let api = runara.authorize('you.jwt.token');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -151,19 +115,7 @@ complete | false | Boolean to process payment and finalize booking | `true`
 
 ## Update a Booking
 
-```shell
-curl "https://api.runara.com/bookings"
-  -H "Authorization: you.jwt.token"
-```
-
-```javascript
-const runara = require('runara');
-
-let api = runara.authorize('you.jwt.token');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -234,12 +186,7 @@ complete | false | Boolean to process payment and finalize booking | `true`
 
 ## Send a Message to all clients of a booking
 
-```shell
-curl "https://api.runara.com/bookings/message/{booking_id}"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-> The above command returns a 204 response on successful submission.
+> Example Response:
 
 Sends a message to all clients registered for booking `booking_id`.
 
@@ -254,13 +201,6 @@ Parameter | Required | Description | Example
 message | true | Message to send to booked client(s). | "Due to inclement weather..."
 
 ## Cancel a booking for a single client
-
-```shell
-curl "https://api.runara.com/bookings/cancel"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-> The above command returns a 204 response on successful submission.
 
 Cancels a booking for a single client passed in body.
 
@@ -277,13 +217,6 @@ message | false | Message to send clients | "Due to inclement weather..."
 
 ## Check-In a Pre-Paid Client
 
-```shell
-curl "https://api.runara.com/bookings/checkin"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-> The above command returns a 200 response on successful submission.
-
 Checks-in a prepaid client to a booking session.
 
 ### HTTP Request
@@ -299,13 +232,6 @@ client | true | ID of client to check-in | `58633ade9a89200fe53be77b`
 undo | false | If `true`, reverts check-in status | `true`
 
 ## Re-Book a Session
-
-```shell
-curl "https://api.runara.com/bookings/rebook/{session_id}"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-> The above command returns a (200) booking response.
 
 Retrieves booking information needed to create a re-booking request.
 

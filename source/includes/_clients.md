@@ -2,12 +2,7 @@
 
 ## View Clients
 
-```shell
-curl "https://api.runara.com/clients"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -46,12 +41,7 @@ Views a list of clients associated with the requesters current account.
 
 ## View Client Details
 
-```shell
-curl "https://api.runara.com/clients/{client}"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -113,12 +103,7 @@ client | true | ID of client. | `568b55febffebc91068d4579`
 
 ## Add a Client
 
-```shell
-curl "https://api.runara.com/clients"
-  -H "Authorization: you.jwt.token"
-```
-
-> The above command returns JSON structured like this:
+> Example Response:
 
 ```json
 {
@@ -185,3 +170,143 @@ Parameter | Required | Description | Example
 email | true | Email address of the client. | `user@domain.com`
 first_name | true | Client's First Name. | `Harry`
 last_name | true | Client's Last Name. | `August`
+
+## Get recent activity
+
+> Example Response:
+
+```json
+{
+  "data": {
+    "recent": {
+      "upcoming": [
+        {
+          "booking_id": "586c7d5e9a89201a3975a7a5",
+          "type": "class",
+          "type_id": "57f71b6a9a892007ef2acc69",
+          "name": "30-Minute Yoga",
+          "date": "1483956000",
+          "date_short": "1\/09\/17",
+          "date_long": "January 9th 2017",
+          "time": "10:00am",
+          "location": {
+            "id": "57f71b1b9a892007ef2acc2f",
+            "name": "Shields Ltd",
+            "room": {
+              "id": null,
+              "name": null
+            }
+          },
+          "staffed_by": {
+            "_id": "581d41449a89200452530aca",
+            "name": "Bianka Cassin"
+          }
+        },
+        {
+          "booking_id": "586c7d7e9a89200fe53be793",
+          "type": "class",
+          "type_id": "57f71b759a892007ef2acc78",
+          "name": "5 Minute Abs",
+          "date": "1484541000",
+          "date_short": "1\/16\/17",
+          "date_long": "January 16th 2017",
+          "time": "4:30am",
+          "location": {
+            "id": "57f71b4f9a892008497f6169",
+            "name": "Schuppe, Bergstrom and Carter",
+            "room": {
+              "id": "57f71b509a892008497f616b",
+              "name": "MediumSpringGreen"
+            }
+          },
+          "staffed_by": {
+            "_id": null,
+            "name": null
+          }
+        }
+      ],
+      "past": [
+        {
+          "booking_id": "586c822d9a89201a3975a7a9",
+          "type": "class",
+          "type_id": "57f71b799a892007d959ee1d",
+          "name": "Grow an Ass Wuori Would Love",
+          "date": "1483763400",
+          "date_short": "1\/07\/17",
+          "date_long": "January 7th 2017",
+          "time": "4:30am",
+          "location": {
+            "id": "57f71b329a892007ef2acc41",
+            "name": "Ledner, Murphy and Pfeffer",
+            "room": {
+              "id": "57f71b339a892007ef2acc42",
+              "name": "Tan"
+            }
+          },
+          "staffed_by": {
+            "_id": null,
+            "name": null
+          }
+        },
+        {
+          "booking_id": "586d99399a892004494e6421",
+          "type": "class",
+          "type_id": "57f71b6a9a892007ef2acc69",
+          "name": "30-Minute Yoga",
+          "date": "1483603200",
+          "date_short": "1\/05\/17",
+          "date_long": "January 5th 2017",
+          "time": "8:00am",
+          "location": {
+            "id": "57f71b249a892008497f6145",
+            "name": "Botsford PLC",
+            "room": {
+              "id": null,
+              "name": null
+            }
+          },
+          "staffed_by": {
+            "_id": "581d41489a8920045120499c",
+            "name": "Joannie Becker"
+          }
+        }
+      ],
+      "purchases": [
+
+      ],
+      "locations": [
+        {
+          "id": "57f71b259a892007ef2acc38",
+          "name": "Mertz-Moore",
+          "room": {
+            "id": "57f71b269a892007ef2acc39",
+            "name": "Red"
+          }
+        },
+        {
+          "id": "57f71b1b9a892007ef2acc2f",
+          "name": "Shields Ltd",
+          "room": {
+            "id": null,
+            "name": null
+          }
+        },
+        {
+          "id": "57f71b4f9a892008497f6169",
+          "name": "Schuppe, Bergstrom and Carter",
+          "room": {
+            "id": "57f71b509a892008497f616b",
+            "name": "MediumSpringGreen"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Returns recent bookings, purchases and locations from the client's records.
+
+### HTTP Request
+
+`POST https://api.runara.com/me`
