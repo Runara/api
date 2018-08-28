@@ -6,12 +6,7 @@ The `admin` routes are helper endpoints created to assist staff with day-to-day 
 
 ## Admin View
 
-```shell
-curl "https://api.runara.com/admin"
-  -H "Authorization: Bearer:your.jwt.token"
-```
-
-> The above command returns JSON structured like this:
+> Example Result:
 
 ```json
 {

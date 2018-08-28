@@ -10,7 +10,9 @@ toc_footers:
 includes:
   - errors
   - accounts
+  - appointments
   - admin
+  - classes
   - clients
   - locations
   - profiles
