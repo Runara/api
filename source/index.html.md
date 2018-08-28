@@ -14,6 +14,7 @@ includes:
   - admin
   - classes
   - clients
+  - favorites
   - locations
   - profiles
   - checkout

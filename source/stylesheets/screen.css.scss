@@ -542,6 +542,14 @@ html {
 // This is all the stuff that appears in the right half of the page
 
 .content {
+  blockquote {
+    margin-top: -68px !important;
+  }
+
+  pre {
+    margin-top: -20px !important;
+  }
+
   blockquote,
   pre {
     background-color: $code-bg;
