@@ -423,7 +423,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='https://app.runara.com/developer'>Sign Up for a Developer Key</a></li>
+            <li>&copy; Runara, Inc.</li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -432,14 +432,23 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Runara API! You can use our API to access Runara endpoints.</p>
 <h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>jQuery Auth Example:</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s2">"https://api.runara.com/classes"</span><span class="p">,</span>
+  <span class="na">type</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="s1">'Bearer eyJ0eXAiOiJKV.eyJpc3MiOiJodHRwczovL2FwaS5ydDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInVzZXIiOnsiaWQiOjEwMDMxOX19.ma52y-xNn2AYuKCv2zznWMSQ'</span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
 <p>Runara uses API keys to allow access to the API. You can register a new Runara API key by logging into Runara and navigating to Account Settings -&gt; API.</p>
 
-<p>Runara expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Runara expects for the API key to be included in all API requests to the server as the value for the header <code>Authorization</code>.</p>
 
 <p><code>Authorization: Bearer your.jwt.token</code></p>
 
 <aside class="notice">
-You must replace <code>you.jwt.token</code> with your own API key.
+You must replace <code>your.jwt.token</code> with your own API key.
 </aside>
 <h1 id='errors'>Errors</h1>
 <p>The Runara API attempts to keep all exception responses formatted in a similar fashion to help you present the data more consistently to your users.</p>
