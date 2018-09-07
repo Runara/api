@@ -10,13 +10,14 @@ toc_footers:
 includes:
   - errors
   - accounts
-  - appointments
   - admin
+  - appointments
   - bookings
   - classes
   - clients
   - favorites
   - locations
+  - passes
   - profiles
   - promos
   - checkout
