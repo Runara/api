@@ -244,17 +244,6 @@
               </ul>
           </li>
           <li>
-            <a href="#appointments" class="toc-h1 toc-link" data-title="Appointments">Appointments</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#all-appointments" class="toc-h2 toc-link" data-title="All Appointments">All Appointments</a>
-                  </li>
-                  <li>
-                    <a href="#single-appointment" class="toc-h2 toc-link" data-title="Single Appointment">Single Appointment</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#admin" class="toc-h1 toc-link" data-title="Admin">Admin</a>
               <ul class="toc-list-h2">
                   <li>
@@ -262,6 +251,17 @@
                   </li>
                   <li>
                     <a href="#admin-view" class="toc-h2 toc-link" data-title="Admin View">Admin View</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#appointments" class="toc-h1 toc-link" data-title="Appointments">Appointments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#all-appointments" class="toc-h2 toc-link" data-title="All Appointments">All Appointments</a>
+                  </li>
+                  <li>
+                    <a href="#single-appointment" class="toc-h2 toc-link" data-title="Single Appointment">Single Appointment</a>
                   </li>
               </ul>
           </li>
@@ -345,6 +345,17 @@
               </ul>
           </li>
           <li>
+            <a href="#passes" class="toc-h1 toc-link" data-title="Passes">Passes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#all-passes" class="toc-h2 toc-link" data-title="All Passes">All Passes</a>
+                  </li>
+                  <li>
+                    <a href="#single-pass" class="toc-h2 toc-link" data-title="Single Pass">Single Pass</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#profiles" class="toc-h1 toc-link" data-title="Profiles">Profiles</a>
               <ul class="toc-list-h2">
                   <li>
@@ -358,6 +369,17 @@
                   </li>
                   <li>
                     <a href="#remove-profile-photo" class="toc-h2 toc-link" data-title="Remove Profile Photo">Remove Profile Photo</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#all-products" class="toc-h2 toc-link" data-title="All Products">All Products</a>
+                  </li>
+                  <li>
+                    <a href="#single-product" class="toc-h2 toc-link" data-title="Single Product">Single Product</a>
                   </li>
               </ul>
           </li>
@@ -560,69 +582,6 @@ User must have access to the account before switching to it. If they do not, a `
 <td><code>11234433</code></td>
 </tr>
 </tbody></table>
-<h1 id='appointments'>Appointments</h1>
-<p>Appointments are single-client bookings.</p>
-<h2 id='all-appointments'>All Appointments</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100112</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coloring Session"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Veniam culpa et omnis quam rerum maiores sapiente iusto."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"base_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$27.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"online_booking"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100111</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cut and Shampoo"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iure voluptatem corporis excepturi sint similique officiis ab. Doloremque in eum dolores aut sunt ut doloribus. Similique necessitatibus sint mollitia. Non quia recusandae vel nihil doloribus."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"base_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$64.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"online_booking"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>View all appointments belonging to an account.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.runara.com/appointments</code></p>
-<h2 id='single-appointment'>Single Appointment</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100112</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coloring Session"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Veniam culpa et omnis quam rerum maiores sapiente iusto."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"base_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$27.00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"online_booking"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trudie Kirlin"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$37.00"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmond Mann"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$23.00"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>View details of a specific appointment.</p>
-
-<p>Includes a <code>base_price</code> that applies to any staff member that does not otherwise have a specified price for this appointment.</p>
-
-<p>Staff members that charge a different amount are listed under the <code>staff</code> object.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.runara.com/appointments/{id}</code></p>
 <h1 id='admin'>Admin</h1><h2 id='what-are-admin-routes'>What are Admin Routes?</h2>
 <p>The <code>admin</code> routes are helper endpoints created to assist staff with day-to-day workflow tasks, such as check-ins and payments. While these tasks can be achieved using other existing endpoints, <code>admin</code> routes are always set in the context of a staff member so any information returned is pertinent to the logged-in user (Staff Member).</p>
 <h2 id='admin-view'>Admin View</h2>
@@ -767,6 +726,69 @@ If logged-in as a manager or administrator, you can pass an optional staff ID in
 <td><code>11234433</code></td>
 </tr>
 </tbody></table>
+<h1 id='appointments'>Appointments</h1>
+<p>Appointments are single-client bookings.</p>
+<h2 id='all-appointments'>All Appointments</h2>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100112</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coloring Session"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Veniam culpa et omnis quam rerum maiores sapiente iusto."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"base_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$27.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"online_booking"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100111</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cut and Shampoo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iure voluptatem corporis excepturi sint similique officiis ab. Doloremque in eum dolores aut sunt ut doloribus. Similique necessitatibus sint mollitia. Non quia recusandae vel nihil doloribus."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"base_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$64.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"online_booking"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>View all appointments belonging to an account.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.runara.com/appointments</code></p>
+<h2 id='single-appointment'>Single Appointment</h2>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100112</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coloring Session"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Veniam culpa et omnis quam rerum maiores sapiente iusto."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"base_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$27.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"online_booking"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trudie Kirlin"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$37.00"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmond Mann"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$23.00"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>View details of a specific appointment.</p>
+
+<p>Includes a <code>base_price</code> that applies to any staff member that does not otherwise have a specified price for this appointment.</p>
+
+<p>Staff members that charge a different amount are listed under the <code>staff</code> object.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.runara.com/appointments/{id}</code></p>
 <h1 id='bookings'>Bookings</h1><h2 id='get-all-bookings'>Get All bookings</h2>
 <blockquote>
 <p>Example Response:</p>
@@ -2161,6 +2183,64 @@ Results set includes meta information and user geolocatoin information alongside
 <td><code>568b55febffebc91068d4579</code></td>
 </tr>
 </tbody></table>
+<h1 id='passes'>Passes</h1>
+<p>Passes (also referred to as Memberships) are recurring payments or subscription to an account.</p>
+<h2 id='all-passes'>All Passes</h2>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100113</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly Package"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This monthly package includes..."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$20.00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100116</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly Membership Plus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a monthly membership package that includes..."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$55.00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>View all passes belonging to an account.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.runara.com/passes</code></p>
+<h2 id='single-pass'>Single Pass</h2>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100113</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly Package"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a monthly pass for..."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$20.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"billing_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trial_period"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"billing_descriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly Package at Abs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"all_classes"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"classes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"all_appointments"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"appointments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100110</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mens Haircut"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100111</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cut and Shampoo"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>View details of a specific pass.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.runara.com/passes/{id}</code></p>
 <h1 id='profiles'>Profiles</h1><h2 id='get-user-profile'>Get User Profile</h2>
 <blockquote>
 <p>Example Response:</p>
@@ -2343,6 +2423,80 @@ Photo is automatically duplicated and resized twice upon upload.
 <p>Removes a user&#39;s profile photo.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE https://api.runara.com/profile/photo</code></p>
+<h1 id='products'>Products</h1>
+<p>Products are items that can be purchased directly from your business.</p>
+
+<p>Each product can contain multiple SKUs, which allow you to sell multiple versions of the same product (e.g. T-shirts in multiple sizes).</p>
+<h2 id='all-products'>All Products</h2>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100112</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Water Bottle"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ab et tempore sed ea dolorem sunt. Placeat exercitationem quis non at vero qui assumenda. Quos neque rerum omnis deleniti assumenda. Debitis exercitationem maxime autem et dolorum laboriosam."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100113</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-Shirt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Earum debitis dolorem aut neque. Ipsa quia quos ut consectetur impedit earum."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>View all products belonging to an account.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.runara.com/products</code></p>
+<h2 id='single-product'>Single Product</h2>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100113</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-Shirt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Earum debitis dolorem aut neque. Ipsa quia quos ut consectetur impedit earum."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"skus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100126</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"products_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100113</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23443343"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inventory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inventory_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100127</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"products_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100113</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42332"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inventory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inventory_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">149</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100128</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"products_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100113</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9798798"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inventory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inventory_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>View details of a specific product along with its available SKUs.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.runara.com/products/{id}</code></p>
 <h1 id='promos'>Promos</h1><h2 id='check-promo-validity'>Check Promo Validity</h2>
 <blockquote>
 <p>Example Response: </p>
