@@ -236,14 +236,6 @@
               </ul>
           </li>
           <li>
-            <a href="#accounts" class="toc-h1 toc-link" data-title="Accounts">Accounts</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#switch-accounts" class="toc-h2 toc-link" data-title="Switch Accounts">Switch Accounts</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#admin" class="toc-h1 toc-link" data-title="Admin">Admin</a>
               <ul class="toc-list-h2">
                   <li>
@@ -274,24 +266,6 @@
                   <li>
                     <a href="#get-a-specific-booking" class="toc-h2 toc-link" data-title="Get a Specific Booking">Get a Specific Booking</a>
                   </li>
-                  <li>
-                    <a href="#create-a-booking" class="toc-h2 toc-link" data-title="Create a Booking">Create a Booking</a>
-                  </li>
-                  <li>
-                    <a href="#update-a-booking" class="toc-h2 toc-link" data-title="Update a Booking">Update a Booking</a>
-                  </li>
-                  <li>
-                    <a href="#send-a-message-to-all-clients-of-a-booking" class="toc-h2 toc-link" data-title="Send a Message to all clients of a booking">Send a Message to all clients of a booking</a>
-                  </li>
-                  <li>
-                    <a href="#cancel-a-booking-for-a-single-client" class="toc-h2 toc-link" data-title="Cancel a booking for a single client">Cancel a booking for a single client</a>
-                  </li>
-                  <li>
-                    <a href="#check-in-a-pre-paid-client" class="toc-h2 toc-link" data-title="Check-In a Pre-Paid Client">Check-In a Pre-Paid Client</a>
-                  </li>
-                  <li>
-                    <a href="#re-book-a-session" class="toc-h2 toc-link" data-title="Re-Book a Session">Re-Book a Session</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -313,9 +287,6 @@
                   </li>
                   <li>
                     <a href="#view-client-details" class="toc-h2 toc-link" data-title="View Client Details">View Client Details</a>
-                  </li>
-                  <li>
-                    <a href="#add-a-client" class="toc-h2 toc-link" data-title="Add a Client">Add a Client</a>
                   </li>
                   <li>
                     <a href="#get-recent-activity" class="toc-h2 toc-link" data-title="Get recent activity">Get recent activity</a>
@@ -372,15 +343,6 @@
                   <li>
                     <a href="#get-user-profile" class="toc-h2 toc-link" data-title="Get User Profile">Get User Profile</a>
                   </li>
-                  <li>
-                    <a href="#update-profile" class="toc-h2 toc-link" data-title="Update Profile">Update Profile</a>
-                  </li>
-                  <li>
-                    <a href="#update-profile-photo" class="toc-h2 toc-link" data-title="Update Profile Photo">Update Profile Photo</a>
-                  </li>
-                  <li>
-                    <a href="#remove-profile-photo" class="toc-h2 toc-link" data-title="Remove Profile Photo">Remove Profile Photo</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -398,7 +360,7 @@
             <a href="#promos" class="toc-h1 toc-link" data-title="Promos">Promos</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#check-promo-validity" class="toc-h2 toc-link" data-title="Check Promo Validity">Check Promo Validity</a>
+                    <a href="#all-promos" class="toc-h2 toc-link" data-title="All Promos">All Promos</a>
                   </li>
               </ul>
           </li>
@@ -430,24 +392,6 @@
                   </li>
                   <li>
                     <a href="#get-a-specific-booking" class="toc-h2 toc-link" data-title="Get a Specific Booking">Get a Specific Booking</a>
-                  </li>
-                  <li>
-                    <a href="#create-a-booking" class="toc-h2 toc-link" data-title="Create a Booking">Create a Booking</a>
-                  </li>
-                  <li>
-                    <a href="#update-a-booking" class="toc-h2 toc-link" data-title="Update a Booking">Update a Booking</a>
-                  </li>
-                  <li>
-                    <a href="#send-a-message-to-all-clients-of-a-booking" class="toc-h2 toc-link" data-title="Send a Message to all clients of a booking">Send a Message to all clients of a booking</a>
-                  </li>
-                  <li>
-                    <a href="#cancel-a-booking-for-a-single-client" class="toc-h2 toc-link" data-title="Cancel a booking for a single client">Cancel a booking for a single client</a>
-                  </li>
-                  <li>
-                    <a href="#check-in-a-pre-paid-client" class="toc-h2 toc-link" data-title="Check-In a Pre-Paid Client">Check-In a Pre-Paid Client</a>
-                  </li>
-                  <li>
-                    <a href="#re-book-a-session" class="toc-h2 toc-link" data-title="Re-Book a Session">Re-Book a Session</a>
                   </li>
                   <li>
                     <a href="#check-in-a-client" class="toc-h2 toc-link" data-title="Check-In a Client">Check-In a Client</a>
@@ -567,30 +511,6 @@ You must replace <code>your.jwt.token</code> with your own API key.
 <tr>
 <td>503</td>
 <td>Service Unavailable -- We&#39;re temporarially offline for maintanance. Please try again later.</td>
-</tr>
-</tbody></table>
-<h1 id='accounts'>Accounts</h1><h2 id='switch-accounts'>Switch Accounts</h2>
-<p>Switches the current account of the user, provided the user has access to the account.</p>
-
-<aside class="info">
-User must have access to the account before switching to it. If they do not, a `401` response is returned.
-</aside>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.runara.com/admin/switch/{ID}</code></p>
-<h3 id='route-parameters'>Route Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>true</td>
-<td>ID of account to switch to.</td>
-<td><code>11234433</code></td>
 </tr>
 </tbody></table>
 <h1 id='admin'>Admin</h1><h2 id='what-are-admin-routes'>What are Admin Routes?</h2>
@@ -836,334 +756,6 @@ If logged-in as a manager or administrator, you can pass an optional staff ID in
 <tr>
 <td>ID</td>
 <td>The ID of the booking to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='create-a-booking'>Create a Booking</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5865eab69a892011972abc1b"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"583e37e09a89202eba73abc2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tucker"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wuori"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b6a9a892007ef2acc69"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30-Minute Yoga"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"class"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484128800"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_formatted"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1</span><span class="se">\/</span><span class="s2">11</span><span class="se">\/</span><span class="s2">17"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"January 11th 2017"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b1a9a892008497f613c"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wolff LLC"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"581d41479a89200452530acc"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester Von"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"purchase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"payment_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_19VDNdEirlNVKsJXWphGWx4C"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Session"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_price_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$22.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"promos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57fb12379a89201ca460c7ce"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOWCODE"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sapiente eum nam magnam minima quae atque. Pariatur ut eum illum ex veniam qui."</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"discount_applied"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a single booking.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/bookings</code></p>
-<h3 id='body-parameters'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client</td>
-<td>true</td>
-<td>The ID of the client to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>appointment</td>
-<td>Required without class</td>
-<td>The ID of the appointment to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>class</td>
-<td>Required without appointment</td>
-<td>The ID of the class to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>session</td>
-<td>true</td>
-<td>Hyphen-Separated Timeseries ID and Timestamp of session to book</td>
-<td><code>584777b49a892049955bedf3-1483524000</code></td>
-</tr>
-<tr>
-<td>pricing</td>
-<td>true</td>
-<td>Pricing option to book</td>
-<td><code>single</code>, <code>unlimited</code>, <code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>code</td>
-<td>false</td>
-<td>Promo code</td>
-<td><code>PROMOCODE20</code></td>
-</tr>
-<tr>
-<td>payment_source</td>
-<td>true</td>
-<td>String representing payment source</td>
-<td><code>Cash</code>, <code>card_58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>complete</td>
-<td>false</td>
-<td>Boolean to process payment and finalize booking</td>
-<td><code>true</code></td>
-</tr>
-</tbody></table>
-<h2 id='update-a-booking'>Update a Booking</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5865eab69a892011972abc1b"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"583e37e09a89202eba73abc2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tucker"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wuori"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b6a9a892007ef2acc69"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30-Minute Yoga"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"class"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484128800"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_formatted"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1</span><span class="se">\/</span><span class="s2">11</span><span class="se">\/</span><span class="s2">17"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"January 11th 2017"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b1a9a892008497f613c"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wolff LLC"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"581d41479a89200452530acc"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester Von"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"purchase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"payment_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_19VDNdEirlNVKsJXWphGWx4C"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Session"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_price_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$22.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"promos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57fb12379a89201ca460c7ce"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOWCODE"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sapiente eum nam magnam minima quae atque. Pariatur ut eum illum ex veniam qui."</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"discount_applied"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint updates a booking.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT https://api.runara.com/bookings</code></p>
-<h3 id='body-parameters-2'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client</td>
-<td>true</td>
-<td>The ID of the client to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>appointment</td>
-<td>Required without class</td>
-<td>The ID of the appointment to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>class</td>
-<td>Required without appointment</td>
-<td>The ID of the class to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>session</td>
-<td>true</td>
-<td>Hyphen-Separated Timeseries ID and Timestamp of session to book</td>
-<td><code>584777b49a892049955bedf3-1483524000</code></td>
-</tr>
-<tr>
-<td>pricing</td>
-<td>true</td>
-<td>Pricing option to book</td>
-<td><code>single</code>, <code>unlimited</code>, <code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>code</td>
-<td>false</td>
-<td>Promo code</td>
-<td><code>PROMOCODE20</code></td>
-</tr>
-<tr>
-<td>payment_source</td>
-<td>true</td>
-<td>String representing payment source</td>
-<td><code>Cash</code>, <code>card_58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>complete</td>
-<td>false</td>
-<td>Boolean to process payment and finalize booking</td>
-<td><code>true</code></td>
-</tr>
-</tbody></table>
-<h2 id='send-a-message-to-all-clients-of-a-booking'>Send a Message to all clients of a booking</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-
-<p>Sends a message to all clients registered for booking <code>booking_id</code>.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/bookings/message/{booking_id}</code></p>
-<h3 id='body-parameters-3'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>message</td>
-<td>true</td>
-<td>Message to send to booked client(s).</td>
-<td>&quot;Due to inclement weather...&quot;</td>
-</tr>
-</tbody></table>
-<h2 id='cancel-a-booking-for-a-single-client'>Cancel a booking for a single client</h2>
-<p>Cancels a booking for a single client passed in body.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/bookings/cancel</code></p>
-<h3 id='body-parameters-4'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client</td>
-<td>true</td>
-<td>ID of client to cancel</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>message</td>
-<td>false</td>
-<td>Message to send clients</td>
-<td>&quot;Due to inclement weather...&quot;</td>
-</tr>
-</tbody></table>
-<h2 id='check-in-a-pre-paid-client'>Check-In a Pre-Paid Client</h2>
-<p>Checks-in a prepaid client to a booking session.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/bookings/checkin</code></p>
-<h3 id='body-parameters-5'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>booking</td>
-<td>true</td>
-<td>ID of booking to check-in to</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>client</td>
-<td>true</td>
-<td>ID of client to check-in</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>undo</td>
-<td>false</td>
-<td>If <code>true</code>, reverts check-in status</td>
-<td><code>true</code></td>
-</tr>
-</tbody></table>
-<h2 id='re-book-a-session'>Re-Book a Session</h2>
-<p>Retrieves booking information needed to create a re-booking request.</p>
-
-<aside class="notice">
-You can pass either a 3-part session identifier or a single-part booking identifier for {session_id}.
-</aside>
-<h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.runara.com/bookings/rebook/{session_id}</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>session_id</td>
-<td>true</td>
-<td>ID of booking to to re-book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
 </tr>
 </tbody></table>
 <h1 id='classes'>Classes</h1>
@@ -1448,92 +1040,7 @@ You can pass either a 3-part session identifier or a single-part booking identif
 <td>client</td>
 <td>true</td>
 <td>ID of client.</td>
-<td><code>568b55febffebc91068d4579</code></td>
-</tr>
-</tbody></table>
-<h2 id='add-a-client'>Add a Client</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"599663689b89200e091e9474"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"client_of"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"$oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5943b4a89a892006485be28b"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Curves2Go"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"original"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"recent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"upcoming"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"past"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"favorites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m.i.chaelwuori@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-17 23:47:52"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-17 23:47:52"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint adds a client to the requestor&#39;s current account.</p>
-
-<aside class="notice">
-If the client has an existing Runara account, the client's existing account becomes associated with your account as opposed to creating a new user record.
-</aside>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/clients</code></p>
-<h3 id='body-parameters'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email</td>
-<td>true</td>
-<td>Email address of the client.</td>
-<td><code>user@domain.com</code></td>
-</tr>
-<tr>
-<td>first_name</td>
-<td>true</td>
-<td>Client&#39;s First Name.</td>
-<td><code>Harry</code></td>
-</tr>
-<tr>
-<td>last_name</td>
-<td>true</td>
-<td>Client&#39;s Last Name.</td>
-<td><code>August</code></td>
+<td><code>23434234234</code></td>
 </tr>
 </tbody></table>
 <h2 id='get-recent-activity'>Get recent activity</h2>
@@ -1545,7 +1052,7 @@ If the client has an existing Runara account, the client's existing account beco
     </span><span class="s2">"recent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"upcoming"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"booking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"586c7d5e9a89201a3975a7a5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"booking_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5234233343423"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"class"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b6a9a892007ef2acc69"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30-Minute Yoga"</span><span class="p">,</span><span class="w">
@@ -1669,7 +1176,7 @@ If the client has an existing Runara account, the client's existing account beco
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns recent bookings, purchases and locations from the client&#39;s records.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://api.runara.com/me</code></p>
 <h1 id='favorites'>Favorites</h1>
 <p>Favorites allow clients easy-access to commonly-used businesses. When a client purhcases from a new business, that business (and location) will be automatically added to their favorites.</p>
@@ -2342,163 +1849,6 @@ Results set includes meta information and user geolocatoin information alongside
 <p>Returns the profile of the user requesting the endpoint.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.runara.com/profiles</code></p>
-<h2 id='update-profile'>Update Profile</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sd5763ce9a89201a8f515fa4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user.name@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mike"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photo_1484882588_default.jpg"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photo_1484882588_thumb.jpg"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Updates a user&#39;s profile.</p>
-
-<aside class="notice">
-If a new email address is provided, the user will no longer be able to log-in with their previously-stored address. User will be notified via email of the change.
-</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/profile/update</code></p>
-<h3 id='body-parameters'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>first_name</td>
-<td>true</td>
-<td>User&#39;s first name.</td>
-<td><code>Jason</code></td>
-</tr>
-<tr>
-<td>last_name</td>
-<td>true</td>
-<td>User&#39;s last name.</td>
-<td><code>Vorhees</code></td>
-</tr>
-<tr>
-<td>email</td>
-<td>true</td>
-<td>User&#39;s email address.</td>
-<td><code>user@email.com</code></td>
-</tr>
-<tr>
-<td>street</td>
-<td>false</td>
-<td>User&#39;s street address.</td>
-<td><code>123 Yellow Ln</code></td>
-</tr>
-<tr>
-<td>street_2</td>
-<td>false</td>
-<td>User&#39;s street address extension.</td>
-<td><code>#4567</code></td>
-</tr>
-<tr>
-<td>city</td>
-<td>false</td>
-<td>User&#39;s city.</td>
-<td><code>Hollywood</code></td>
-</tr>
-<tr>
-<td>state</td>
-<td>false</td>
-<td>User&#39;s state.</td>
-<td><code>CA</code></td>
-</tr>
-<tr>
-<td>postal</td>
-<td>false</td>
-<td>User&#39;s postal code.</td>
-<td><code>90210</code></td>
-</tr>
-</tbody></table>
-<h2 id='update-profile-photo'>Update Profile Photo</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sd5763ce9a89201a8f515fa4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user.name@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mike"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photo_1484882588_default.jpg"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">s3-us-west-2.amazonaws.com</span><span class="se">\/</span><span class="s2">runara</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">profiles</span><span class="se">\/</span><span class="s2">photo_1484882588_thumb.jpg"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Updates or adds a user&#39;s profile photo.</p>
-
-<aside class="notice">
-Photo is automatically duplicated and resized twice upon upload.
-</aside>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/profile/photo</code></p>
-<h3 id='body-parameters-2'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>image</td>
-<td>true</td>
-<td>Image file</td>
-<td><code>[FILE]</code></td>
-</tr>
-</tbody></table>
-<h2 id='remove-profile-photo'>Remove Profile Photo</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sd5763ce9a89201a8f515fa4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user.name@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mike"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Removes a user&#39;s profile photo.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DELETE https://api.runara.com/profile/photo</code></p>
 <h1 id='products'>Products</h1>
 <p>Products are items that can be purchased directly from your business.</p>
 
@@ -2573,43 +1923,38 @@ Photo is automatically duplicated and resized twice upon upload.
 <p>View details of a specific product along with its available SKUs.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.runara.com/products/{id}</code></p>
-<h1 id='promos'>Promos</h1><h2 id='check-promo-validity'>Check Promo Validity</h2>
+<h1 id='promos'>Promos</h1><h2 id='all-promos'>All Promos</h2>
 <blockquote>
-<p>Example Response: </p>
+<p>Example Response:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-</span><span class="p">{</span><span class="s2">"data"</span><span class="p">:{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"asdf"</span><span class="p">}}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100115</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100113</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALLSAVINGS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qui laborum consequatur occaecati qui. Aliquid qui reprehenderit voluptate consequuntur. Officiis odio fugiat laborum. Est consequatur vel non vel dignissimos facilis. Esse non aut velit beatae voluptatem."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100112</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOTSUMMERSALE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ut qui non quae mollitia assumenda. Odio nulla magni laborum deserunt deleniti."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100114</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPRINGUP22"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nihil et eius fugit aliquid deleniti repellendus expedita. Iste qui recusandae aut."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Checks to see if promo is valid. Returns specific errors describing invalidity.</p>
-
-<aside class="notice">
-A Booking ID must be applied as some promos only count against certain booking types, such as classes vs. appointments.
-</aside>
+<p>Displays all promo codes belonging to the current account.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/discounts/attempt</code></p>
-<h3 id='body-parameters'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>code</td>
-<td>true</td>
-<td>The promo code to attempt</td>
-<td><code>WOWCODE20</code></td>
-</tr>
-<tr>
-<td>booking</td>
-<td>true</td>
-<td>ID of booking to attempt against</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-</tbody></table>
+<p><code>GET https://api.runara.com/promos</code></p>
 <h1 id='checkout'>Checkout</h1>
 <p>Checkout endpoints create and modify a shopping cart on the Runara platform. All account purchases are managed through the Checkout interface.</p>
 
@@ -3189,334 +2534,6 @@ Quantity only applies to products. Other items are single-purchase only.
 <tr>
 <td>ID</td>
 <td>The ID of the booking to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='create-a-booking'>Create a Booking</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5865eab69a892011972abc1b"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"583e37e09a89202eba73abc2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tucker"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wuori"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b6a9a892007ef2acc69"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30-Minute Yoga"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"class"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484128800"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_formatted"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1</span><span class="se">\/</span><span class="s2">11</span><span class="se">\/</span><span class="s2">17"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"January 11th 2017"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b1a9a892008497f613c"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wolff LLC"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"581d41479a89200452530acc"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester Von"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"purchase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"payment_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_19VDNdEirlNVKsJXWphGWx4C"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Session"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_price_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$22.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"promos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57fb12379a89201ca460c7ce"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOWCODE"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sapiente eum nam magnam minima quae atque. Pariatur ut eum illum ex veniam qui."</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"discount_applied"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a single booking.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/bookings</code></p>
-<h3 id='body-parameters'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client</td>
-<td>true</td>
-<td>The ID of the client to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>appointment</td>
-<td>Required without class</td>
-<td>The ID of the appointment to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>class</td>
-<td>Required without appointment</td>
-<td>The ID of the class to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>session</td>
-<td>true</td>
-<td>Hyphen-Separated Timeseries ID and Timestamp of session to book</td>
-<td><code>584777b49a892049955bedf3-1483524000</code></td>
-</tr>
-<tr>
-<td>pricing</td>
-<td>true</td>
-<td>Pricing option to book</td>
-<td><code>single</code>, <code>unlimited</code>, <code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>code</td>
-<td>false</td>
-<td>Promo code</td>
-<td><code>PROMOCODE20</code></td>
-</tr>
-<tr>
-<td>payment_source</td>
-<td>true</td>
-<td>String representing payment source</td>
-<td><code>Cash</code>, <code>card_58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>complete</td>
-<td>false</td>
-<td>Boolean to process payment and finalize booking</td>
-<td><code>true</code></td>
-</tr>
-</tbody></table>
-<h2 id='update-a-booking'>Update a Booking</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5865eab69a892011972abc1b"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"583e37e09a89202eba73abc2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tucker"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wuori"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b6a9a892007ef2acc69"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30-Minute Yoga"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"class"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484128800"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_formatted"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1</span><span class="se">\/</span><span class="s2">11</span><span class="se">\/</span><span class="s2">17"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"January 11th 2017"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57f71b1a9a892008497f613c"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wolff LLC"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"581d41479a89200452530acc"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chester Von"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"purchase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"payment_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_19VDNdEirlNVKsJXWphGWx4C"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Session"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"purchase_price_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$22.00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"promos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57fb12379a89201ca460c7ce"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOWCODE"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sapiente eum nam magnam minima quae atque. Pariatur ut eum illum ex veniam qui."</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"discount_applied"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint updates a booking.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT https://api.runara.com/bookings</code></p>
-<h3 id='body-parameters-2'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client</td>
-<td>true</td>
-<td>The ID of the client to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>appointment</td>
-<td>Required without class</td>
-<td>The ID of the appointment to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>class</td>
-<td>Required without appointment</td>
-<td>The ID of the class to book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>session</td>
-<td>true</td>
-<td>Hyphen-Separated Timeseries ID and Timestamp of session to book</td>
-<td><code>584777b49a892049955bedf3-1483524000</code></td>
-</tr>
-<tr>
-<td>pricing</td>
-<td>true</td>
-<td>Pricing option to book</td>
-<td><code>single</code>, <code>unlimited</code>, <code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>code</td>
-<td>false</td>
-<td>Promo code</td>
-<td><code>PROMOCODE20</code></td>
-</tr>
-<tr>
-<td>payment_source</td>
-<td>true</td>
-<td>String representing payment source</td>
-<td><code>Cash</code>, <code>card_58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>complete</td>
-<td>false</td>
-<td>Boolean to process payment and finalize booking</td>
-<td><code>true</code></td>
-</tr>
-</tbody></table>
-<h2 id='send-a-message-to-all-clients-of-a-booking'>Send a Message to all clients of a booking</h2>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-
-<p>Sends a message to all clients registered for booking <code>booking_id</code>.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/bookings/message/{booking_id}</code></p>
-<h3 id='body-parameters-3'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>message</td>
-<td>true</td>
-<td>Message to send to booked client(s).</td>
-<td>&quot;Due to inclement weather...&quot;</td>
-</tr>
-</tbody></table>
-<h2 id='cancel-a-booking-for-a-single-client'>Cancel a booking for a single client</h2>
-<p>Cancels a booking for a single client passed in body.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/bookings/cancel</code></p>
-<h3 id='body-parameters-4'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client</td>
-<td>true</td>
-<td>ID of client to cancel</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>message</td>
-<td>false</td>
-<td>Message to send clients</td>
-<td>&quot;Due to inclement weather...&quot;</td>
-</tr>
-</tbody></table>
-<h2 id='check-in-a-pre-paid-client'>Check-In a Pre-Paid Client</h2>
-<p>Checks-in a prepaid client to a booking session.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://api.runara.com/bookings/checkin</code></p>
-<h3 id='body-parameters-5'>BODY Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>booking</td>
-<td>true</td>
-<td>ID of booking to check-in to</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>client</td>
-<td>true</td>
-<td>ID of client to check-in</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
-</tr>
-<tr>
-<td>undo</td>
-<td>false</td>
-<td>If <code>true</code>, reverts check-in status</td>
-<td><code>true</code></td>
-</tr>
-</tbody></table>
-<h2 id='re-book-a-session'>Re-Book a Session</h2>
-<p>Retrieves booking information needed to create a re-booking request.</p>
-
-<aside class="notice">
-You can pass either a 3-part session identifier or a single-part booking identifier for {session_id}.
-</aside>
-<h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.runara.com/bookings/rebook/{session_id}</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>session_id</td>
-<td>true</td>
-<td>ID of booking to to re-book</td>
-<td><code>58633ade9a89200fe53be77b</code></td>
 </tr>
 </tbody></table>
 <h2 id='check-in-a-client'>Check-In a Client</h2>
